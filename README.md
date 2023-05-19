@@ -19,5 +19,8 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
+deployed url 
+https://andylin03.github.io/module_5Calendar/
+
 What it looks like 
 <img width="543" alt="Screenshot 2023-05-19 at 4 34 14 PM" src="https://github.com/andylin03/module_5Calendar/assets/126199540/83ac6da2-616a-4f8b-8522-6aeb4c9a36b5">

@@ -1,9 +1,10 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; 
+    /* entire body */
     font-size: 16px;
     line-height: 1;
 }
-
+/* where the text displays */
 textarea {
     background: transparent;
     border: none;
@@ -32,22 +33,19 @@ textarea {
     color: #000000;
     border-top: 1px dashed #000000;
 }
-
+/* colors for the events */
 .past {
-    background-color: gray;
-    color: white;
-}
-
-.present {
-    background-color: beige;
-    color: white;
-}
-
-.future {
-    background-color: purple;
-    color: white;
-}
-
+    background-color: #d3d3d3; 
+  }
+  
+  .present {
+    background-color: #ff6961; 
+  }
+  
+  .future {
+    background-color: #77dd77; 
+  }
+/* save button */
 .saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
@@ -56,12 +54,12 @@ textarea {
     color: white;
     border-style: dotted;
 }
-
+/* effects on the button */
 .saveBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
 }
-
+/* words on the front page */
 .display-3 {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -78,7 +76,7 @@ textarea {
 header {
     background-color: slateblue;
 }
-
+/* changing font for the hours */
 #hour-9 div {
     font-family: cursive;
 }

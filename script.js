@@ -1,4 +1,4 @@
-// time and date
+// Day, date, time
 function updateDateTime() {
     var dateTimeElement = document.getElementById('currentDay');
     var currentDate = new Date();
@@ -9,68 +9,63 @@ function updateDateTime() {
   
     // Update the HTML element with the current date and time
     dateTimeElement.textContent = 'Current Date: ' + date + ' | Current Time: ' + time;
+  
+    // Update the time block colors
+    updateBlockColors();
   }
   
+  // time and date update
   setInterval(updateDateTime, 1000);
   
-  // Update the block colors based on the current time
-  function updateBlockColors() {
-    var currentTime = new Date().getHours();
+ 
+// Update the time block colors
+function updateBlockColors() {
+    var currentTime = dayjs().format('H');
   
     $(".time-block").each(function () {
-      var scheduledTime = parseInt($(this).attr("id").split("-")[1]);
+      var blockTime = parseInt($(this).attr("id").split("-")[1]);
   
-      if (currentTime > scheduledTime) {
-        $(this).removeClass("future present");
-        $(this).addClass("past");
-      } else if (currentTime < scheduledTime) {
-        $(this).removeClass("past present");
-        $(this).addClass("future");
+      if (blockTime < currentTime) {
+        $(this).removeClass("present future").addClass("past");
+      } else if (blockTime === currentTime) {
+        $(this).removeClass("past future").addClass("present");
       } else {
-        $(this).removeClass("past future");
-        $(this).addClass("present");
+        $(this).removeClass("past present").addClass("future");
       }
     });
   }
   
-  updateBlockColors();
+  // Schedule a recurring update of the block colors every minute
+  setInterval(updateBlockColors, 60000);
   
-  // Buttons functions
+  // updates page
+  $(document).ready(function () {
+    updateDateTime();
+    updateBlockColors();
+    renderText();
+  });
+
+  // Button functions
   $(".saveBtn").click(function () {
     var eventText = $(this).siblings("textarea").val();
     var eventTime = $(this).parent().attr("id");
   
-    // Store the eventText as a stringified JSON
-    localStorage.setItem(eventTime, JSON.stringify(eventText));
-  
-    renderText();
-    updateBlockColors(); 
-    // Update block colors after saving
+    localStorage.setItem(eventTime, eventText);
   });
   
-  // Enter and Display Events
+  // saves events
   function renderText() {
-    $("#hour-9 textarea").val(parseJSONOrDefault(localStorage.getItem("hour-9")));
-    $("#hour-10 textarea").val(parseJSONOrDefault(localStorage.getItem("hour-10")));
-    $("#hour-11 textarea").val(parseJSONOrDefault(localStorage.getItem("hour-11")));
-    $("#hour-12 textarea").val(parseJSONOrDefault(localStorage.getItem("hour-12")));
-    $("#hour-1 textarea").val(parseJSONOrDefault(localStorage.getItem("hour-1")));
-    $("#hour-2 textarea").val(parseJSONOrDefault(localStorage.getItem("hour-2")));
-    $("#hour-3 textarea").val(parseJSONOrDefault(localStorage.getItem("hour-3")));
-    $("#hour-4 textarea").val(parseJSONOrDefault(localStorage.getItem("hour-4")));
-    $("#hour-5 textarea").val(parseJSONOrDefault(localStorage.getItem("hour-5")));
+    $(".time-block").each(function () {
+      var eventTime = $(this).attr("id");
+      var eventText = localStorage.getItem(eventTime);
+  
+      $(this).find("textarea").val(eventText);
+    });
   }
   
-  function parseJSONOrDefault(jsonString, defaultValue = "") {
-    try {
-      return JSON.parse(jsonString) || defaultValue;
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
-      return defaultValue;
-    }
-  }
+
   
-  renderText();
+  
   
   
   

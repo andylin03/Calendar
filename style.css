@@ -1,59 +1,120 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-  }
-  
-  textarea {
+    line-height: 1;
+}
+
+textarea {
     background: transparent;
     border: none;
     resize: none;
     color: #000000;
     border-left: 1px solid black;
     padding: 10px;
-  }
-  
-  .description {
+}
+
+.description {
     white-space: pre-wrap;
-  }
-  
-  .time-block {
+}
+
+.time-block {
     border-radius: 15px;
-  }
-  
-  .row {
+}
+
+.row {
+    white-space: pre-wrap;
+    height: 100px;
     border-top: 1px solid white;
-  }
-  
-  .hour {
+}
+
+.hour {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
-  }
-  
-  .past {
-    background-color: #d3d3d3;
+}
+
+.past {
+    background-color: gray;
     color: white;
-  }
-  
-  .present {
-    background-color: #ff6961;
+}
+
+.present {
+    background-color: beige;
     color: white;
-  }
-  
-  .future {
-    background-color: #77dd77;
+}
+
+.future {
+    background-color: purple;
     color: white;
-  }
-  
-  .saveBtn {
+}
+
+.saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: #06aed5;
     color: white;
-  }
-  
-  .saveBtn i:hover {
+    border-style: dotted;
+}
+
+.saveBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
-  }
+}
+
+.display-3 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 60px;
+    margin-top: 30px;
+}
+
+.lead {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+}
+
+header {
+    background-color: slateblue;
+}
+
+#hour-9 div {
+    font-family: cursive;
+}
+
+#hour-10 div {
+    font-family: cursive;
+}
+
+#hour-11 div {
+    font-family: cursive;
+}
+
+#hour-12 div {
+    font-family: cursive;
+}
+
+#hour-1 div {
+    font-family: cursive;
+}
+
+#hour-2 div {
+    font-family: cursive;
+}
+
+#hour-3 div {
+    font-family: cursive;
+}
+
+#hour-4 div {
+    font-family: cursive;
+}
+
+#hour-5 div {
+    font-family: cursive;
+}
+
+#hour-8 div {
+    font-family: cursive;
+}
